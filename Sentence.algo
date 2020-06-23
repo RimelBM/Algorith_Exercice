@@ -1,0 +1,42 @@
+ALGORITHM Treat_sentence
+VAR
+    
+    sum_caracter,sum_word,sum_Voyells : INTEGER := 0;
+    s : CHAR ;
+    ch : STRING ;
+BEGIN
+
+REPEAT
+    //input s
+    Read(s);
+    ch := ch + s ;
+    
+    //count caracters , l'espace n'est pas un caracter !
+    IF (s <> ' ') THEN
+        sum_caracter := sum_caracter + 1 ;
+    END_IF
+    
+    //count Words .
+    IF (s = ' ') THEN
+        sum_word := sum_word + 1 ;
+    END_IF
+
+
+    //count voyells
+    IF ((s = 'a')Or(s = 'o')Or(s = 'u')Or(s = 'e')Or(s = 'i')Or(s = 'y')) THEN
+        sum_Voyells := sum_Voyells + 1 ;
+    END_IF
+    
+    
+UNTIL (s = '.')
+
+    //Output 
+    Write(ch , '.');
+    Write(sum_caracter);
+    Write(sum_word);
+    Write(sum_Voyells;)
+
+
+
+
+END
