@@ -2,41 +2,46 @@ ALGORITHM Treat_sentence
 VAR
     
     sum_caracter,sum_word,sum_Voyells : INTEGER := 0;
-    s : CHAR ;
+
+    i,j :INTEGER := 0 ;
+
     ch : STRING ;
+
 BEGIN
+    
+    Write("write Your sentence : ") ;
 
 REPEAT
-    //input s
-    Read(s);
-    ch := ch + s ;
+    //input sentence
+    Read(ch[i]);
+    i := i+1;
+    
+UNTIL (ch[i] = '.')
+
+FOR j FROM 0 TO ch.length-1 STEP step  DO
     
     //count caracters , l'espace n'est pas un caracter !
-    IF (s <> ' ') THEN
+    IF (ch[j] <> ' ') THEN
         sum_caracter := sum_caracter + 1 ;
     END_IF
     
     //count Words .
-    IF (s = ' ') THEN
+    IF (ch[j] = ' ') THEN
         sum_word := sum_word + 1 ;
     END_IF
 
 
     //count voyells
-    IF ((s = 'a')Or(s = 'o')Or(s = 'u')Or(s = 'e')Or(s = 'i')Or(s = 'y')) THEN
+    IF ((ch[j] = 'a')Or(ch[j] = 'o')Or(ch[j] = 'u')Or(ch[j] = 'e')Or(ch[j] = 'i')Or(ch[j] = 'y')) THEN
         sum_Voyells := sum_Voyells + 1 ;
     END_IF
-    
-    
-UNTIL (s = '.')
+END_FOR
+
 
     //Output 
-    Write(ch , '.');
+    Write(ch , '.'); // end with a point
     Write(sum_caracter);
     Write(sum_word);
     Write(sum_Voyells;)
-
-
-
 
 END
